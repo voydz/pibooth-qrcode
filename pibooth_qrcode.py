@@ -11,7 +11,7 @@ import pygame
 import pibooth
 from pibooth.view.background import multiline_text_to_surfaces
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 
 SECTION = 'QRCODE'
@@ -152,7 +152,8 @@ def state_processing_exit(cfg, app):
     qrcode_background_color = '#%02x%02x%02x' % cfg.gettyped("QRCODE", 'background')
 
     image = qr.make_image(fill_color=qrcode_fill_color, back_color=qrcode_background_color)
-    app.previous_qr = pygame.image.fromstring(image.tobytes(), image.size, image.mode)
+    # pygame.image.frombytes replaces deprecated fromstring; PIL mode must match buffer layout
+    app.previous_qr = pygame.image.frombytes(image.tobytes(), image.size, image.mode)
 
 
 @pibooth.hookimpl

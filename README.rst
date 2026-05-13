@@ -9,12 +9,22 @@ pibooth-qrcode
 
 It adds the display of a custom qrcode at the print and wait state
 
+Requirements
+------------
+
+* Python **3.11+** (e.g. Debian trixie / Raspberry Pi OS with Python 3.13)
+* `pibooth`_ **2.0.8+** with **Pillow 12+** (use a venv on Debian: ``python3 -m venv ...``)
+
 Install
 -------
 
-::
+From PyPI (after ``pibooth`` is installed in the same environment)::
 
-    $ pip3 install pibooth-qrcode
+    $ python3 -m pip install pibooth-qrcode
+
+Or from this fork::
+
+    $ python3 -m pip install git+https://github.com/voydz/pibooth-qrcode.git
 
 Configuration
 -------------
@@ -69,7 +79,7 @@ QR code locations
 
 Here is the possible QR code location at screen:
 
-.. image:: https://raw.githubusercontent.com/pibooth/pibooth-qrcode/master/docs/images/locations.png
+.. image:: https://raw.githubusercontent.com/voydz/pibooth-qrcode/master/docs/images/locations.png
    :align: center
    :alt: Locations
 
@@ -78,17 +88,17 @@ Example
 
 Here is an example of the rendering you can get with this plugin on the wait screen:
 
-.. image:: https://raw.githubusercontent.com/pibooth/pibooth-qrcode/master/docs/images/screenshot.png
+.. image:: https://raw.githubusercontent.com/voydz/pibooth-qrcode/master/docs/images/screenshot.png
    :align: center
    :alt: Example screenshot
 
 .. --- Links ------------------------------------------------------------------
 
-.. _`pibooth`: https://pypi.org/project/pibooth
+.. _`pibooth`: https://github.com/voydz/pibooth
 
-.. |PythonVersions| image:: https://img.shields.io/badge/python-3.6+-red.svg
+.. |PythonVersions| image:: https://img.shields.io/badge/python-3.11+-blue.svg
    :target: https://www.python.org/downloads
-   :alt: Python 3.6+
+   :alt: Python 3.11+
 
 .. |PypiPackage| image:: https://badge.fury.io/py/pibooth-qrcode.svg
    :target: https://pypi.org/project/pibooth-qrcode

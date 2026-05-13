@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      SDL_VIDEODRIVER: dummy
+      CAM_VIDEODRIVER: dummy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install SDL2
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+      - name: Install pibooth
+        run: |
+          pip install -U pip
+          pip install "git+https://github.com/voydz/pibooth.git@master#egg=pibooth" || pip install "pibooth>=2.0.8"
+      - name: Install plugin
+        run: pip install -e .
+      - name: Import smoke test
+        run: python -c "import pibooth_qrcode; print('ok', pibooth_qrcode.__version__)"

@@ -26,16 +26,15 @@ def main():
             'Intended Audience :: End Users/Desktop',
             'License :: OSI Approved :: GNU Affero General Public License v3',
             'Operating System :: POSIX :: Linux',
-            'Programming Language :: Python :: 3.6',
-            'Programming Language :: Python :: 3.7',
-            'Programming Language :: Python :: 3.8',
-            'Programming Language :: Python :: 3.9',
+            'Programming Language :: Python :: 3.11',
+            'Programming Language :: Python :: 3.12',
+            'Programming Language :: Python :: 3.13',
             'Natural Language :: English',
             'Topic :: Multimedia :: Graphics :: Capture :: Digital Camera',
         ],
         author="Vincent Verdeil, Antoine Rousseaux",
-        url="https://github.com/pibooth/pibooth-qrcode",
-        download_url="https://github.com/pibooth/pibooth-qrcode/archive/{}.tar.gz".format(plugin.__version__),
+        url="https://github.com/voydz/pibooth-qrcode",
+        download_url="https://github.com/voydz/pibooth-qrcode/archive/{}.tar.gz".format(plugin.__version__),
         license='GPLv3',
         platforms=['unix', 'linux'],
         keywords=[
@@ -45,10 +44,11 @@ def main():
             'pygame'
         ],
         py_modules=['pibooth_qrcode'],
-        python_requires=">=3.6",
+        python_requires=">=3.11",
         install_requires=[
-            'pibooth>=2.0.0',
-            'qrcode>=6.1'
+            'pibooth>=2.0.8',
+            'Pillow>=12.0.0',
+            'qrcode>=7.4',
         ],
         zip_safe=False,  # Don't install the lib as an .egg zipfile
         entry_points={'pibooth': ["pibooth_qrcode = pibooth_qrcode"]},
